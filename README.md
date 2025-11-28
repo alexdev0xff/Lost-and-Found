@@ -52,8 +52,8 @@
    cd Lost-and-Found
    sudo docker build -t lost-found-app .
    docker run -d -p 5000:5000 --name lost-found-app lost-found-app
-
-
+   
+----
    
 ##  Требования к системе
 ### Минимальные
