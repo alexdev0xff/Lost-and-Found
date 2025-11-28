@@ -23,7 +23,7 @@
    source venv/bin/activate   # Linux/macOS
    venv\Scripts\activate      # Windows
    
-4. Активируйте окружение:
+4. Установите зависимости:
    ```bash
    pip install Flask Flask-SQLAlchemy Werkzeug
    
