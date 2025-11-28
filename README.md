@@ -13,3 +13,22 @@
    ```bash
    git clone https://github.com/alexdev0xff/Lost-and-Found.git
    cd Lost-and-Found
+   
+2. Создайте виртуальное окружение:
+   ```bash
+   python -m venv venv
+   
+3. Активируйте окружение:
+   ```bash
+   source venv/bin/activate   # Linux/macOS
+   venv\Scripts\activate      # Windows
+   
+4. Активируйте окружение:
+   ```bash
+   pip install Flask Flask-SQLAlchemy Werkzeug
+   
+5. Запуск:
+   ```bash
+   python3 app.py
+     
+
