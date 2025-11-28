@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Lost and Found</h1>
+            <a href="{{ url_for('add_item') }}" class="add-button">Добавить вещь</a>
+        </div>
+
+        <div class="filters-section">
+            <span>Фильтры:</span>
+            <a href="{{ url_for('index', filter='Все') }}" 
+               class="filter-tag {% if not current_filter or current_filter == 'Все' %}active{% endif %}">
+                Все
+            </a>
+            
+            {% for status in status_map %}
+            <a href="{{ url_for('index', filter=status) }}" 
+               class="filter-tag {% if current_filter == status %}active{% endif %}">
+                {{ status }}
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="items-list">
+            {% if not items %}
+            <p style="text-align: center; color: #999;">В этом разделе пока нет предметов.</p>
+            {% endif %}
+            
+            {% for item in items %}
+            <div class="list-item">
+                
+                {% if item.image_filename %}
+                    <img src="{{ url_for('static', filename='uploads/' + item.image_filename) }}" alt="{{ item.name }}" class="item-thumbnail">
+                {% else %}
+                    <div class="item-icon">📦</div>
+                {% endif %}
+                
+                <div class="item-text">
+                    <strong>{{ item.name }}</strong>
+                    <span class="item-status">Статус: {{ item.status }}</span>
+                    {% if item.description %}
+                        <p style="font-size: 0.9em; color: #777; margin: 5px 0 0;">{{ item.description|truncate(70, True) }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

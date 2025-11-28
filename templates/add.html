@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить предмет</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="add-form">
+            <h1>Добавить новую вещь</h1>
+            
+            <form method="POST" action="{{ url_for('add_item') }}" enctype="multipart/form-data">
+                
+                <div class="add-photo-section">
+                    <div class="camera-icon" onclick="document.getElementById('file-upload').click();">📷</div>
+                    <span>добавить фото</span>
+                    <input type="file" id="file-upload" name="photo" accept="image/*" style="margin-left: 20px;">
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label for="item-name">Название</label>
+                    <input type="text" id="item-name" name="name" class="input-title" required placeholder="Ключи, телефон Xiaomi, синяя куртка..."/>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <label for="item-description">Описание и место</label>
+                    <textarea id="item-description" name="description" class="input-title" rows="3" placeholder="Найдены возле входа в кафе."></textarea>
+                </div>
+
+                <div class="status-select-section">
+                    <p style="font-weight: bold; margin-bottom: 10px;">Выберите статус</p>
+
+                    <div class="status-option">
+                        <input type="radio" id="status-found" name="status" value="Найдено" required>
+                        <label for="status-found">1. Найдено</label>
+                    </div>
+
+                    <div class="status-option">
+                        <input type="radio" id="status-lost" name="status" value="Потеряно">
+                        <label for="status-lost">2. Потеряно</label>
+                    </div>
+
+                    <div class="status-option">
+                        <input type="radio" id="status-returned" name="status" value="Вернули владельцу">
+                        <label for="status-returned">3. Вернули владельцу</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    Опубликовать
+                </button>
+            </form>
+            <p style="margin-top: 20px;"><a href="{{ url_for('index') }}">← Вернуться к списку</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
