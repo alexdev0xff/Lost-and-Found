@@ -7,7 +7,7 @@
 
 **Версия:** 0.1
 **Текущий статус:** Заморожен
-**Скоро:** Обновления проекта и файл Dockerfile!  
+**Скоро:** Новый UI
 
 ----
 
@@ -18,7 +18,7 @@
   
 ----
 
-## Установка и запуск
+## Установка и запуск (ручная)
 
 1. Клонируйте репозиторий:
    ```bash
@@ -43,6 +43,17 @@
    python3 app.py
 
 ----
+
+## Установка и запуск Docker
+
+1. Запуск:
+   ```bash
+   git clone https://github.com/alexdev0xff/Lost-and-Found.git
+   cd Lost-and-Found
+   sudo docker build -t lost-found-app .
+   docker run -d -p 5000:5000 --name lost-found-app lost-found-app
+
+
    
 ##  Требования к системе
 ### Минимальные
