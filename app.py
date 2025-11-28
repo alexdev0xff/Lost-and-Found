@@ -46,7 +46,7 @@ def create_tables_and_folders():
         if not os.path.exists(app.config['UPLOAD_FOLDER']):
             os.makedirs(app.config['UPLOAD_FOLDER'])
 
-# Стаус фото
+# Статус фото
 @app.route('/')
 def index():
     status_filter = request.args.get('filter')
